@@ -1,0 +1,12 @@
+
+
+<%= form_for(@team) do |f| %>
+  <label>Team Name:</label><br>
+  <%= f.text_field :team_name %><br>
+
+  <label>Users Names:</label><br>
+
+  <%= f.collection_check_boxes :user_ids, @users, :id, :username %><br>
+
+  <%= f.submit %>
+<% end %>

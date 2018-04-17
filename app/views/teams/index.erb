@@ -1,0 +1,9 @@
+
+<h1> Teams </h1>
+
+<% @teams.each do |team|    %>
+<p> <%= link_to(team.team_name, team_path(team)) %> </p>
+<% end %>
+
+<br><br><br><br>
+<p> <%= link_to("CREATE NEW TEAM", new_team_path) %> </p>
