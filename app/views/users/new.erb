@@ -1,8 +1,15 @@
-
+<h3> Back to: <%=link_to("Teams", teams_path) %>
+<%=link_to("Users", users_path) %> </h3>
 
 <%= form_for(@user) do |f| %>
   <label>User Name:</label><br>
   <%= f.text_field :username %><br>
+
+<br>
+
+  <label>Join Teams:</label> <br><br>
+<%= f.collection_check_boxes :team_ids, @teams, :id, :team_name %><br>
+<br><br>
 
 
   <%= f.submit %>

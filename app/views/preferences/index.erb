@@ -1,4 +1,7 @@
-<h1> <%= @user.username %>'s Movie Preferences: </h1>
+<h3> Back to: <%=link_to("Teams", teams_path) %>
+<%=link_to("Users", users_path) %> </h3>
+
+<h1> <%= @user.username.capitalize %>'s Movie Preferences: </h1>
 
 <% @user_preferences.each do |preference|    %>
 <p> <%= "#{preference.like_or_dislike} #{preference.category.name}" %> </p>

@@ -11,10 +11,16 @@ class PreferencesController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @preference = Preference.new(user_id: @user.id)
+    @categories = Category.all
   end
 
   def create
 
+  @user = User.find(params[:user_id])
+ @preference = Preference.create(preference_params)
+ @user.preferences << @preference
+ @user.save
+ redirect_to user_preferences_path(@user)
   end
 
   def edit
@@ -31,9 +37,10 @@ class PreferencesController < ApplicationController
 
 private
 
-def preferences_params(*args)
-
+def preference_params(*args)
+params.require(:preference).permit(:like_or_dislike, :category_id)
 end
+
 
 
 end

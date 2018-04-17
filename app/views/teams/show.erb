@@ -1,6 +1,9 @@
+<h3> Back to: <%=link_to("Teams", teams_path) %>
+<%=link_to("Users", users_path) %> </h3>
+
 <h1> <%= @team.team_name %> </h1>
 
-Team Members: 
+Team Members:
 <% @users.each do |user|    %>
 <p> <%= link_to(user.username, user_path(user)) %> </p>
 <% end %>

@@ -1,3 +1,13 @@
+
+<h3> Back to: <%=link_to("Teams", teams_path) %>
+<%=link_to("Users", users_path) %> </h3>
+
 <% @users.each do |user|    %>
 <p> <%= link_to(user.username, user_path(user)) %> </p>
 <% end %>
+
+
+
+
+<br><br><br><br>
+<%=link_to("CREATE NEW USER", new_user_path) %>

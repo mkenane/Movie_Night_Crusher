@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def new
   @user = User.new
+  @teams = Team.all 
   end
 
   def create
