@@ -4,9 +4,12 @@
 <h1> <%= @user.username.capitalize %>'s Movie Preferences: </h1>
 
 <% @user_preferences.each do |preference|    %>
-<p> <%= "#{preference.like_or_dislike} #{preference.category.name}" %> </p>
+ <%= "#{@user.username.capitalize} #{preference.like_or_dislike.capitalize}s #{preference.category.name.capitalize}"   %>
+ <br>
+<%= button_to "delete", {action: "destroy", id: preference.id}, {method: :delete} %>
+<br>
 <% end %>
 
 
-<br><br><br><br><br>
+<br><br><br><br>
 <p> <%= link_to("Add New Preference", new_user_preference_path(@user)) %> </p>

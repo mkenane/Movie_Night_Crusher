@@ -4,6 +4,7 @@ class PreferencesController < ApplicationController
   end
 
   def index
+
     @user = User.find(params[:user_id])
     @user_preferences = @user.preferences
   end
@@ -12,6 +13,7 @@ class PreferencesController < ApplicationController
     @user = User.find(params[:user_id])
     @preference = Preference.new(user_id: @user.id)
     @categories = Category.all
+    @user_preferences = @user.preferences
   end
 
   def create
@@ -32,6 +34,10 @@ class PreferencesController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:user_id])
+    @user_preference = Preference.find(params[:id])
+    @user_preference.delete
+    redirect_to user_preferences_path(@user)
   end
 
 

@@ -3,6 +3,7 @@ class TeamsController < ApplicationController
     def show
     @team = Team.find(params[:id])
     @users = @team.users
+    @movie_options = @team.movie_fill
     end
 
     def index
@@ -15,7 +16,7 @@ class TeamsController < ApplicationController
     end
 
     def create
-    
+
       @team = Team.create(team_params)
       redirect_to team_path(@team)
     end
